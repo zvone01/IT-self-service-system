@@ -70,7 +70,7 @@ namespace IT_self_service_system.Controllers
             }
 
             if (model != null)
-                model.listSolution.OrderByDescending(x => x.counter);
+                model.listSolution.OrderByDescending(y => y.reputation).ThenBy(x => x.counter);
 
             return View(model);
         }

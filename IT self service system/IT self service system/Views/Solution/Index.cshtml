@@ -28,6 +28,9 @@
         <h3 class="media-heading">@Model.title</h3>
         <h4 class="media-heading">@Model.category.Name</h4>
         <p>@Html.Raw(Model.description.Replace(Environment.NewLine, "<br/>")) <p>
+         <br />
+        <b>Contact info:</b> <br />
+        <p>@Model.ContactInfo</p>
     </div>
 </div>
 

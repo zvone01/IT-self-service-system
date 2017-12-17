@@ -234,6 +234,10 @@
     <Compile Include="Migrations\201712160908029_ReputationToSolution.Designer.cs">
       <DependentUpon>201712160908029_ReputationToSolution.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712171425387_ContactInfoSolution.cs" />
+    <Compile Include="Migrations\201712171425387_ContactInfoSolution.Designer.cs">
+      <DependentUpon>201712171425387_ContactInfoSolution.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -350,6 +354,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712160908029_ReputationToSolution.resx">
       <DependentUpon>201712160908029_ReputationToSolution.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712171425387_ContactInfoSolution.resx">
+      <DependentUpon>201712171425387_ContactInfoSolution.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

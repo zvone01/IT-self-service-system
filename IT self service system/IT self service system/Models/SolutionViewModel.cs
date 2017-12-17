@@ -14,14 +14,16 @@ namespace IT_self_service_system.Models
         public int reputation { get; set; }
         public int Id { get; set; }
         public uint counter { get; set; }
+        public string ContactInfo { get; set; }
 
-       public SolutionViewModel(Solution s)
+        public SolutionViewModel(Solution s)
         {
             Id = s.Id; 
             category = s.Category;
             title = s.Title;
             description = s.Description;
             reputation = s.Reputation;
+            ContactInfo = s.ContactInfo;
         }
     }
 
@@ -33,6 +35,7 @@ namespace IT_self_service_system.Models
         public string title { get; set; }
         public string description { get; set; }
         public int reputation { get; set; }
+        public string ContactInfo { get; set; }
 
 
         public CreateSolutionViewModel()
@@ -46,6 +49,7 @@ namespace IT_self_service_system.Models
             title = s.Title;
             description = s.Description;
             reputation = s.Reputation;
+            ContactInfo = s.ContactInfo;
         }
     }
     

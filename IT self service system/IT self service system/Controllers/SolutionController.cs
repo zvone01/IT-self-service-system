@@ -96,7 +96,8 @@ namespace IT_self_service_system.Controllers
                     Title = model.title,
                     Description = model.description,
                     CreateDate = DateTime.Now,
-                    Reputation = 0
+                    Reputation = 0,
+                    ContactInfo = model.ContactInfo
                 };
 
                 _context.Soluton.Add(newSolution);
@@ -148,7 +149,8 @@ namespace IT_self_service_system.Controllers
                 sol.CategoryId = model.selectedCategory;
                 sol.Title = model.title;
                 sol.Description = model.description;
-                
+                sol.ContactInfo = model.ContactInfo;
+
                 _context.SaveChanges();
                 return RedirectToAction("Index", new { id = sol.Id } );//Index(sol.Id);
             }

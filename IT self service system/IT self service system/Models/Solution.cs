@@ -30,8 +30,10 @@ namespace IT_self_service_system.Models
 
         public int Reputation { get;  set; }
 
-       // [Display(Name = "Created by")]
-      //  public string ApplicationUserId { get; set; }
-        
+
+        public string ContactInfo { get; set; }
+        // [Display(Name = "Created by")]
+        //  public string ApplicationUserId { get; set; }
+
     }
 }

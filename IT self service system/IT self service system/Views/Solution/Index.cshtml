@@ -1,22 +1,90 @@
-﻿@model IT_self_service_system.Models.SolutionListViewModel
+﻿@model IT_self_service_system.Models.SolutionViewModel
 @{
     ViewBag.Title = "Index";
 }
+<h2></h2>
+<div class="row ">
 
-<h2>Index</h2>
-
-@foreach (var s in Model.listSolution)
-{<div class="row">
-
-        <div class="col-md-1">
-            <h1> @s.Id </h1>
-        </div>
-        <div class="col-md-11">
-
-            <h3 class="media-heading">@s.Title</h3>
-            <p>@s.Description</p>
+    <div class="col-md-1">
+        <h1 id="rep"> @Model.reputation </h1>
+        <div class="row">
+            <dvi class="col-md-6">
+                <a href="#" id="rep-down">
+                    <span class="glyphicon glyphicon-size-large glyphicon-thumbs-down"></span>
+                </a>
+            </dvi>
+            <dvi class="col-md-6">
+                <a href="#" id="rep-up">
+                    <span class="glyphicon glyphicon-size-large glyphicon-thumbs-up"></span>
+                </a>
+            </dvi>
         </div>
     </div>
-    <hr />
-}
+    <div class="col-md-11">
+        @if (User.IsInRole(IT_self_service_system.Models.RoleName.CanAddSolution))
+            {
+                <a href="@Url.Action("Edit", "Solution", new { id = Model.Id })" class="btn btn-danger pull-right" role="button">Edit</a>
+            }
+        <h3 class="media-heading">@Model.title</h3>
+        <h4 class="media-heading">@Model.category.Name</h4>
+        <p>@Html.Raw(Model.description.Replace(Environment.NewLine, "<br/>")) <p>
+    </div>
+</div>
 
+@section Scripts{
+    <script>
+
+
+        $("#rep-up").click(function () {
+            $.ajax({
+
+                method: "POST",
+                url: "@Url.Action("Rate", "Solution")",
+
+                data: {
+                    "SolutionId": "@Model.Id",
+                    "Mark": "true"
+
+                }
+            }).done(function (data) {
+                if (data != null) {
+
+                    $('#rep').text(data);
+
+                    if ($("#rep-up").is(":visible"))
+                        $("#rep-up").hide();
+
+                    if (!$("#rep-down").is(":visible"))
+                        $("#rep-down").show();
+                }
+            });
+        });
+        $("#rep-down").click(function () {
+            $.ajax({
+
+                method: "POST",
+                url: "@Url.Action("Rate", "Solution")",
+
+                data: {
+                    "SolutionId": "@Model.Id",
+                    "Mark": "false"
+
+                }
+            }).done(function (data) {
+                if (data != null) {
+                    $('#rep').text(data);
+
+
+                    if ($("#rep-down").is(":visible"))
+                        $("#rep-down").hide();
+
+                    if (!$("#rep-up").is(":visible"))
+                        $("#rep-up").show();
+                }
+            });
+        });
+
+
+
+    </script>
+}

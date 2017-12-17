@@ -1,11 +1,7 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
+﻿@model IEnumerable<IT_self_service_system.Models.CategoryViewModel>
 
-<div class="jumbotron">
-    <h1>IT self service system</h1>
-    <p class="lead"></p>
-</div>
+<h2>Categories</h2>
+
 <div class="row">
     <form action="/Solution/Result" method="post" role="form">
         <div class="input-group">
@@ -17,4 +13,15 @@
             </div>
         </div>
     </form>
+</div>
+<hr />
+<div class="row rowPinStyle">
+    @foreach (var c in Model)
+    {
+        <div class="itemPinStyle well" >
+
+            <a href="@Url.Action("Result", "Solution", new { q = c.Name, category = true })" > @c.Name</a>
+        </div>
+    }
+
 </div>

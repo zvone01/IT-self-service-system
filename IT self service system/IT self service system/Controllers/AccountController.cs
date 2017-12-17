@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using IT_self_service_system.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace IT_self_service_system.Controllers
 {
@@ -155,6 +156,21 @@ namespace IT_self_service_system.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    if (model.ServiceDeskEmploye)
+                    {
+                        var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+
+                        var x = await roleStore.FindByNameAsync(RoleName.CanAddSolution);
+                        if (x == null)
+                            await roleStore.CreateAsync(new IdentityRole()
+                            {
+                                Name = RoleName.CanAddSolution
+                            });
+
+                        if (!UserManager.IsInRole(user.Id, RoleName.CanAddSolution))
+                            await UserManager.AddToRoleAsync(user.Id, RoleName.CanAddSolution);
+                    }
+
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771

@@ -79,6 +79,10 @@ namespace IT_self_service_system.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+
+        [Display(Name = "Service Desk Employe")]
+        public bool ServiceDeskEmploye { get; set; }
     }
 
     public class ResetPasswordViewModel

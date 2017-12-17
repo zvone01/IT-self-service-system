@@ -15,3 +15,29 @@
 .dl-horizontal dt {
     white-space: normal;
 }
+
+.glyphicon-size-large{
+ font-size: 24px;
+}
+
+
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+.rowPinStyle {
+	/* column width */
+	-moz-column-width: 19em;
+	-webkit-column-width: 19em;
+	
+	/* space between columns */
+	-moz-column-gap: 1em;
+	-webkit-column-gap: 1em;
+}
+
+.itemPinStyle {
+	display: inline-block;
+	width: 100%;
+}

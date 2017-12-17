@@ -28,6 +28,8 @@ namespace IT_self_service_system.Models
 
         public ApplicationUser CreatedBy { get; set; }
 
+        public int Reputation { get;  set; }
+
        // [Display(Name = "Created by")]
       //  public string ApplicationUserId { get; set; }
         

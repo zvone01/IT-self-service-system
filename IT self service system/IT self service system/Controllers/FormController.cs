@@ -39,9 +39,6 @@ namespace IT_self_service_system.Controllers
             }
             return View(model);
         }
-
-        
-
         //GET: Create
         public ActionResult Create(int SolutionID)
         {
@@ -109,8 +106,7 @@ namespace IT_self_service_system.Controllers
 
             }
 
-            
-                return RedirectToAction("Index", "Home");
+             return RedirectToAction("Index", "Home");
 
         }
     }

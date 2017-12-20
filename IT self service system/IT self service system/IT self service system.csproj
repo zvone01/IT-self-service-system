@@ -251,6 +251,22 @@
     <Compile Include="Migrations\201712171859025_FormsFillstatus2.Designer.cs">
       <DependentUpon>201712171859025_FormsFillstatus2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712201238241_from.cs" />
+    <Compile Include="Migrations\201712201238241_from.Designer.cs">
+      <DependentUpon>201712201238241_from.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712201301380_from1.cs" />
+    <Compile Include="Migrations\201712201301380_from1.Designer.cs">
+      <DependentUpon>201712201301380_from1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712201354429_fromNewTest.cs" />
+    <Compile Include="Migrations\201712201354429_fromNewTest.Designer.cs">
+      <DependentUpon>201712201354429_fromNewTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712201358060_Categories.cs" />
+    <Compile Include="Migrations\201712201358060_Categories.Designer.cs">
+      <DependentUpon>201712201358060_Categories.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -383,6 +399,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712171859025_FormsFillstatus2.resx">
       <DependentUpon>201712171859025_FormsFillstatus2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712201238241_from.resx">
+      <DependentUpon>201712201238241_from.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712201301380_from1.resx">
+      <DependentUpon>201712201301380_from1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712201354429_fromNewTest.resx">
+      <DependentUpon>201712201354429_fromNewTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712201358060_Categories.resx">
+      <DependentUpon>201712201358060_Categories.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

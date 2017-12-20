@@ -7,7 +7,8 @@ namespace IT_self_service_system.Migrations
     {
         public override void Up()
         {
-            
+
+
         }
         
         public override void Down()

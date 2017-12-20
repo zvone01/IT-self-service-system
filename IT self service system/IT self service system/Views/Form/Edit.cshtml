@@ -1,0 +1,42 @@
+﻿@model IT_self_service_system.Models.FormEditViewModel
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>@Model.Title</h2>
+<h3>@Model.UserName</h3>
+<div class="row">
+    <form action="/Form/Edit" method="post" role="form" novalidate="novalidate">
+        @Html.HiddenFor(model => model.Title)
+        @Html.HiddenFor(model => model.UserName)
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            <label for="description">Text:</label>
+            <textarea class="form-control" rows="25" id="Text" name="Text">@Model.Text</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Comments:</label>
+            <textarea class="form-control" rows="25" id="Comments" name="Comments">@Model.Comment</textarea>
+        </div>
+        <label for="StatusID">Status:</label>
+        <select class="form-control" id="StatusID" name="StatusID">
+
+            @{
+                string selected = "";
+            }
+            @foreach (var c in Model.StatusList)
+            {
+                if (c.Id == Model.StatusID) { selected = "selected"; }
+
+
+                <option value=@c.Id @selected>@c.Name</option>
+
+                selected = "";
+            }
+        </select>
+
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>

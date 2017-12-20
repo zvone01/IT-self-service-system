@@ -1,0 +1,26 @@
+﻿@model List<IT_self_service_system.Models.FormViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<h1>
+   @if (Model.FirstOrDefault() != null && Model.FirstOrDefault().Status != null)
+   {
+       Model.FirstOrDefault().Status.Name.ToString();
+   }
+    
+    </h1>
+<h1></h1>
+@foreach (var f in Model)
+{<div class="row">
+
+        <div class="col-md-12">
+            <a href="Form/Edit?id=@f.Id"><h3 class="media-heading">@f.Title</h3> </a>
+
+            <h4 class="media-heading">@f.UserName</h4>
+            <p>@Html.Raw(String.Join(" ", f.Text.Replace(Environment.NewLine, "<br/>").Split(' ').Take(250))) ...</p>
+        </div>
+    </div>
+    <hr />
+}
+

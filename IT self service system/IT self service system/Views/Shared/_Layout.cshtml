@@ -23,7 +23,12 @@
                     @if (User.IsInRole(IT_self_service_system.Models.RoleName.CanAddSolution))
                     {
                     <li>@Html.ActionLink("Create Solution", "Create", "Solution")</li>
+                    <li>@Html.ActionLink("New  Requests", "Index", "Form",new { FormStatus = "1"},null)</li>
+                    <li>@Html.ActionLink("Requests in process", "Index", "Form", new { FormStatus = "2" },null)</li>
+                    <li>@Html.ActionLink("Finished  Requests", "Index", "Form", new { FormStatus = "3" }, null)</li>
+
                     }
+                    
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

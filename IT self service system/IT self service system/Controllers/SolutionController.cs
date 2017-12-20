@@ -24,18 +24,31 @@ namespace IT_self_service_system.Controllers
             _context.Dispose();
             base.Dispose(disposing);
         }
-        
+
+      //  public ActionResult Index()
+     //   {
+      //      return RedirectToAction("Index", "Home");
+       // }
         // GET: Solution
-        public ActionResult Index(int id)
+        public ActionResult Index(int id = 0)
         {
-            if (id <= 0)
+            if ( id <= 0)
                 return RedirectToAction("Index","Home") ;
             var sol = _context.Soluton.Include(x => x.Category).FirstOrDefault(s => s.Id == id);
 
             if (sol == null)
                 return RedirectToAction("Index", "Home");
 
+              
+
             SolutionViewModel model = new SolutionViewModel(sol);
+
+            var forms = _context.Form.Include(u => u.User).Include(s => s.Status).Where(x => x.SolutionId == sol.Id).ToList();
+
+            if (forms != null && forms.Count() > 0)
+                foreach(var f in forms)
+                 model.formList.Add(new FormViewModel(f));
+
             return View(model);
         }
 

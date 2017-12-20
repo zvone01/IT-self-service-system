@@ -15,6 +15,7 @@ namespace IT_self_service_system.Models
         public int Id { get; set; }
         public uint counter { get; set; }
         public string ContactInfo { get; set; }
+        public List<FormViewModel> formList { get; set; }
 
         public SolutionViewModel(Solution s)
         {
@@ -24,6 +25,7 @@ namespace IT_self_service_system.Models
             description = s.Description;
             reputation = s.Reputation;
             ContactInfo = s.ContactInfo;
+            formList = new List<FormViewModel>();
         }
     }
 

@@ -22,6 +22,10 @@ namespace IT_self_service_system.Models
     {
         public DbSet<Category> Category { get; set; }
         public DbSet<Solution> Soluton { get; set; }
+        public DbSet<Form> Form { get; set; }
+        public DbSet<FormStatus> FormStatus { get; set; }
+
+
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

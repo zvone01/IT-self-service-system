@@ -23,16 +23,20 @@
     <div class="col-md-11">
         @if (User.IsInRole(IT_self_service_system.Models.RoleName.CanAddSolution))
         {
-                <a href="@Url.Action("Edit", "Solution", new { id = Model.Id })" class="btn btn-danger pull-right" role="button">Edit</a>
+            <a href="@Url.Action("Edit", "Solution", new { id = Model.Id })" class="btn btn-danger pull-right" role="button">Edit</a>
         }
         <h3 class="media-heading">@Model.title</h3>
         <h4 class="media-heading">@Model.category.Name</h4>
         <p>@Html.Raw(Model.description.Replace(Environment.NewLine, "<br/>")) <p>
-         <br />
-        <b>Contact info:</b> <br />
+            <br />
+            <b>Contact info:</b> <br />
         <p>@Model.ContactInfo</p>
     </div>
-    <a href="@Url.Action("Create", "Form", new { SolutionID = Model.Id })" class="btn btn-danger pull-right" role="button">Make request</a>
+    @if (Model.stype.Id == 9)
+    {
+        <a href="@Url.Action("Create", "Form", new { SolutionID = Model.Id })" class="btn btn-danger pull-right" role="button">Make request</a>
+
+    }
 </div>
 @{
     if (User.IsInRole(IT_self_service_system.Models.RoleName.CanAddSolution))
@@ -40,7 +44,7 @@
         foreach (var f in Model.formList.OrderBy(x => x.Status.Id))
         {<div class="row">
         <div class="col-md-2">
-           <h3>@f.Status.Name</h3> 
+            <h3>@f.Status.Name</h3>
         </div>
         <div class="col-md-10">
             <a href="@Url.Action("Edit", "Form", new { Id = f.Id })"><h3 class="media-heading">@f.Title</h3> </a>
@@ -49,7 +53,7 @@
             <p>@Html.Raw(String.Join(" ", f.Text.Replace(Environment.NewLine, "<br/>").Split(' ').Take(250))) ...</p>
         </div>
     </div>
-        <hr />
+    <hr />
         }
     }
 }

@@ -34,7 +34,7 @@ namespace IT_self_service_system.Controllers
         {
             if ( id <= 0)
                 return RedirectToAction("Index","Home") ;
-            var sol = _context.Soluton.Include(x => x.Category).FirstOrDefault(s => s.Id == id);
+            var sol = _context.Soluton.Include(x => x.Category).Include(y => y.Type).FirstOrDefault(s => s.Id == id);
 
             if (sol == null)
                 return RedirectToAction("Index", "Home");
@@ -66,7 +66,7 @@ namespace IT_self_service_system.Controllers
             {
                 if (category)
                 {
-                    model.AddSolutionsToList(_context.Soluton.Include(s => s.Category).Where(x => x.Category.Name == q).ToList());
+                    model.AddSolutionsToList(_context.Soluton.Include(s => s.Category).Include(y => y.Type).Where(x => x.Category.Name == q).ToList());
                 }
                 else
                 {
@@ -74,7 +74,7 @@ namespace IT_self_service_system.Controllers
                     {
                         if (word == "the" || word == "a" || word == "an")
                             continue;
-                        model.AddSolutionsToList(_context.Soluton.Include(s => s.Category).Where(x => x.Description.Contains(word) || x.Title.Contains(word)).ToList());
+                        model.AddSolutionsToList(_context.Soluton.Include(s => s.Category).Include(y => y.Type).Where(x => x.Description.Contains(word) || x.Title.Contains(word)).ToList());
                     }
                 }
 
@@ -94,6 +94,8 @@ namespace IT_self_service_system.Controllers
         {
             CreateSolutionViewModel model = new CreateSolutionViewModel();
             model.categoryList = _context.Category.ToList();
+
+            model.stypeList = _context.SolutionType.ToList();
             return View(model);
         }
 
@@ -110,7 +112,9 @@ namespace IT_self_service_system.Controllers
                     Description = model.description,
                     CreateDate = DateTime.Now,
                     Reputation = 0,
-                    ContactInfo = model.ContactInfo
+                    ContactInfo = model.ContactInfo,
+                    TypeId = model.selectedType
+
                 };
 
                 _context.Soluton.Add(newSolution);
@@ -133,7 +137,7 @@ namespace IT_self_service_system.Controllers
         {
             if (id <= 0)
                 return RedirectToAction("Result");
-            var sol = _context.Soluton.Include(x => x.Category).FirstOrDefault(s => s.Id == id);
+            var sol = _context.Soluton.Include(x => x.Category).Include(y => y.Type).FirstOrDefault(s => s.Id == id);
 
             if (sol == null)
                 return RedirectToAction("Index", "Home");
@@ -141,6 +145,7 @@ namespace IT_self_service_system.Controllers
             CreateSolutionViewModel model = new CreateSolutionViewModel(sol);
 
             model.categoryList = _context.Category.ToList();
+            model.stypeList = _context.SolutionType.ToList();
             return View(model);
         }
 
@@ -163,6 +168,7 @@ namespace IT_self_service_system.Controllers
                 sol.Title = model.title;
                 sol.Description = model.description;
                 sol.ContactInfo = model.ContactInfo;
+                sol.TypeId = model.selectedType;
 
                 _context.SaveChanges();
                 return RedirectToAction("Index", new { id = sol.Id } );//Index(sol.Id);

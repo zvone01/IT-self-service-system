@@ -19,17 +19,32 @@
         <label for="ContactInfo">Contact info:</label>
         <input type="text" class="form-control" id="ContactInfo" name="ContactInfo" value="@Model.ContactInfo">
     </div>
-    <label for="selectedCategory">Category:</label>
- 
-    <select class="form-control"  id="selectedCategory" name="selectedCategory">
+    <div class="form-group">
+        <label for="selectedCategory">Category:</label>
+
+        <select class="form-control" id="selectedCategory" name="selectedCategory">
 
 
-        @foreach (var c in Model.categoryList)
-        {
+            @foreach (var c in Model.categoryList)
+            {
 
-            <option value=@c.Id>@c.Name</option>
-        }
-    </select>
+                <option value=@c.Id>@c.Name</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="selectedType">Type:</label>
+
+        <select class="form-control" id="selectedType" name="selectedType">
+
+
+            @foreach (var c in Model.stypeList)
+            {
+
+                <option value=@c.Id>@c.Name</option>
+            }
+        </select>
+    </div>
     <br />
     <button type="submit" class="btn btn-success">Submit</button>
 </form>

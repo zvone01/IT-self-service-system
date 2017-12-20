@@ -267,6 +267,26 @@
     <Compile Include="Migrations\201712201358060_Categories.Designer.cs">
       <DependentUpon>201712201358060_Categories.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712201522314_solutionType.cs" />
+    <Compile Include="Migrations\201712201522314_solutionType.Designer.cs">
+      <DependentUpon>201712201522314_solutionType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712201545070_SolutionType2.cs" />
+    <Compile Include="Migrations\201712201545070_SolutionType2.Designer.cs">
+      <DependentUpon>201712201545070_SolutionType2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712201557276_typeInsert.cs" />
+    <Compile Include="Migrations\201712201557276_typeInsert.Designer.cs">
+      <DependentUpon>201712201557276_typeInsert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712201602402_ispravci.cs" />
+    <Compile Include="Migrations\201712201602402_ispravci.Designer.cs">
+      <DependentUpon>201712201602402_ispravci.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712201840501_TypeSolutionNullTo7.cs" />
+    <Compile Include="Migrations\201712201840501_TypeSolutionNullTo7.Designer.cs">
+      <DependentUpon>201712201840501_TypeSolutionNullTo7.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Category.cs" />
@@ -278,6 +298,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\RoleName.cs" />
     <Compile Include="Models\Solution.cs" />
+    <Compile Include="Models\SolutionType.cs" />
     <Compile Include="Models\SolutionViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -411,6 +432,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712201358060_Categories.resx">
       <DependentUpon>201712201358060_Categories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712201522314_solutionType.resx">
+      <DependentUpon>201712201522314_solutionType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712201545070_SolutionType2.resx">
+      <DependentUpon>201712201545070_SolutionType2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712201557276_typeInsert.resx">
+      <DependentUpon>201712201557276_typeInsert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712201602402_ispravci.resx">
+      <DependentUpon>201712201602402_ispravci.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712201840501_TypeSolutionNullTo7.resx">
+      <DependentUpon>201712201840501_TypeSolutionNullTo7.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

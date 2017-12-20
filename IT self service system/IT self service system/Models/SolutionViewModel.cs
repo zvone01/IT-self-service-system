@@ -16,6 +16,7 @@ namespace IT_self_service_system.Models
         public uint counter { get; set; }
         public string ContactInfo { get; set; }
         public List<FormViewModel> formList { get; set; }
+        public SolutionType stype { get; set; }
 
         public SolutionViewModel(Solution s)
         {
@@ -26,6 +27,7 @@ namespace IT_self_service_system.Models
             reputation = s.Reputation;
             ContactInfo = s.ContactInfo;
             formList = new List<FormViewModel>();
+            stype = s.Type;
         }
     }
 
@@ -38,7 +40,8 @@ namespace IT_self_service_system.Models
         public string description { get; set; }
         public int reputation { get; set; }
         public string ContactInfo { get; set; }
-
+        public List<SolutionType> stypeList { get; set; }
+        public int selectedType { get; set; }
 
         public CreateSolutionViewModel()
         {
@@ -52,6 +55,7 @@ namespace IT_self_service_system.Models
             description = s.Description;
             reputation = s.Reputation;
             ContactInfo = s.ContactInfo;
+            selectedType = s.TypeId;
         }
     }
     

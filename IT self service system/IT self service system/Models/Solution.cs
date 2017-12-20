@@ -30,6 +30,8 @@ namespace IT_self_service_system.Models
 
         public int Reputation { get;  set; }
 
+        public int TypeId { get; set; }
+        public SolutionType Type { get; set; }
 
         public string ContactInfo { get; set; }
         // [Display(Name = "Created by")]

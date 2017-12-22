@@ -27,7 +27,7 @@ namespace IT_self_service_system.Controllers
         {
             return View();
         }
-
+        
         public ActionResult Categories()
         {
             List<CategoryViewModel> model = new List<CategoryViewModel>();
@@ -35,7 +35,7 @@ namespace IT_self_service_system.Controllers
                 model.Add(new CategoryViewModel(c));
             return View(model);
         }
-        /*
+        
                 public ActionResult About()
                 {
                     ViewBag.Message = "Your application description page.";
@@ -48,6 +48,6 @@ namespace IT_self_service_system.Controllers
                     ViewBag.Message = "Your contact page.";
 
                     return View();
-                }*/
+                }
     }
 }

@@ -23,7 +23,7 @@
     <div class="col-md-11">
         @if (User.IsInRole(IT_self_service_system.Models.RoleName.CanAddSolution))
         {
-            <a href="@Url.Action("Edit", "Solution", new { id = Model.Id })" class="btn btn-danger pull-right" role="button">Edit</a>
+            //<a href="@Url.Action("Edit", "Solution", new { id = Model.Id })" class="btn btn-danger pull-right" role="button">Edit</a>
         }
         <h3 class="media-heading">@Model.title</h3>
         <h4 class="media-heading">@Model.category.Name</h4>
@@ -39,23 +39,23 @@
     }
 </div>
 @{
-    if (User.IsInRole(IT_self_service_system.Models.RoleName.CanAddSolution))
-    {
+   /*
         foreach (var f in Model.formList.OrderBy(x => x.Status.Id))
-        {<div class="row">
-        <div class="col-md-2">
-            <h3>@f.Status.Name</h3>
-        </div>
-        <div class="col-md-10">
-            <a href="@Url.Action("Edit", "Form", new { Id = f.Id })"><h3 class="media-heading">@f.Title</h3> </a>
+        {
+        <div class="row">
+            <div class="col-md-2">
+                <h3>@f.Status.Name</h3>
+            </div>
+            <div class="col-md-10">
+               <!--<a href="@Url.Action("Edit", "Form", new { Id = f.Id })"><h3 class="media-heading">@f.Title</h3> </a> --> 
 
-            <h4 class="media-heading">@f.UserName</h4>
-            <p>@Html.Raw(String.Join(" ", f.Text.Replace(Environment.NewLine, "<br/>").Split(' ').Take(250))) ...</p>
+                <h4 class="media-heading">@f.UserName</h4>
+                <p>@Html.Raw(String.Join(" ", f.Text.Replace(Environment.NewLine, "<br/>").Split(' ').Take(250))) ...</p>
+            </div>
         </div>
-    </div>
-    <hr />
+        <hr />
         }
-    }
+    */
 }
 
 @section Scripts{

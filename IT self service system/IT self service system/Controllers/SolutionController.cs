@@ -83,13 +83,13 @@ namespace IT_self_service_system.Controllers
             }
 
             if (model != null)
-                model.listSolution.OrderByDescending(y => y.reputation).ThenBy(x => x.counter);
+                 model.listSolution.OrderByDescending(y => y.reputation);
 
             return View(model);
         }
 
         // GET: Solution/Create
-        [AuthorizeFilter(Roles = RoleName.CanAddSolution)]
+       // [AuthorizeFilter(Roles = RoleName.CanAddSolution)]
         public ActionResult Create()
         {
             CreateSolutionViewModel model = new CreateSolutionViewModel();
@@ -100,7 +100,7 @@ namespace IT_self_service_system.Controllers
         }
 
         [HttpPost]
-        [AuthorizeFilter(Roles = RoleName.CanAddSolution)]
+       // [AuthorizeFilter(Roles = RoleName.CanAddSolution)]
         public ActionResult Create(CreateSolutionViewModel model)
         {
             if(model.title != null && model.selectedCategory != 0 && model.description != null)
@@ -132,7 +132,7 @@ namespace IT_self_service_system.Controllers
 
         // GET: Solution/Edit?Id=
         [HttpGet]
-        [AuthorizeFilter(Roles = RoleName.CanAddSolution)]
+       // [AuthorizeFilter(Roles = RoleName.CanAddSolution)]
         public ActionResult Edit(int id)
         {
             if (id <= 0)
@@ -150,7 +150,7 @@ namespace IT_self_service_system.Controllers
         }
 
         [HttpPost]
-        [AuthorizeFilter(Roles = RoleName.CanAddSolution)]
+       // [AuthorizeFilter(Roles = RoleName.CanAddSolution)]
         public ActionResult Edit(CreateSolutionViewModel model)
         {
             if (model == null && model.Id > 0)

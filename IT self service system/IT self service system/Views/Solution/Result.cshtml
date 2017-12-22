@@ -17,7 +17,7 @@
 </div>
 <h2>Search result</h2>
 
-@foreach (var s in Model.listSolution)
+@foreach (var s in Model.listSolution.OrderByDescending(y => y.reputation))
 {<div class="row">
 
         <div class="col-md-1">
